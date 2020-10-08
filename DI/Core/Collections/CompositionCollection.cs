@@ -27,8 +27,15 @@ namespace DI.Collections
 
         #region Methods
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="composition"></param>
+        /// <exception cref="ArgumentNullException"/>
         internal void Add(Composition composition)
         {
+            Contracts.Contracts.NotNullArgument(composition);
+
             if (!this.list.Contains(composition))
                 this.list.Add(composition);
         }
