@@ -6,9 +6,17 @@ namespace DI
     {
         #region Constructors
 
-        public CompositionException(string message)
-        {
+        public CompositionException() : base("Exception in Composition") { }
 
+        public CompositionException(string message) : base($"Exception in Composition: {message}")
+        {
+            Message = message;
+        }
+
+        public CompositionException(string message, Exception innerException)
+            : base($"Exception in Composition: {message}", innerException)
+        {
+            Message = message;
         }
 
         #endregion

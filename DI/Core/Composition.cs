@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using DI.Collections;
 
@@ -9,7 +10,8 @@ namespace DI
     {
         #region Fields
 
-        private List<Export> exports = new List<Export>();
+        internal List<Export> exports = new List<Export>();
+        internal List<ExportGroup> exportGroups = new List<ExportGroup>();
 
         #endregion
 
@@ -37,7 +39,18 @@ namespace DI
         public bool TryImport<TImport>(out TImport destination)
             where TImport : class
         {
-            throw new NotImplementedException();
+            destination = null;
+
+            if(typeof(TImport).IsInterface)
+            {
+                if(this.exportGroups.)
+            }
+            else
+            {
+                if (this.exports.Where(export => export.Type == typeof(TImport)))
+            }
+
+            return false;
         }
 
         #endregion
