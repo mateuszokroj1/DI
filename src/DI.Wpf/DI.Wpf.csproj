@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net5.0-windows;net46</TargetFrameworks>
+		<Version>0.9.0</Version>
+		<Authors>Mateusz Okrój</Authors>
+		<Product>DI WPF</Product>
+		<Description>Dependency Injection extension for Windows Presentation Foundation</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/mateuszokroj1/DI</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>wpf composition dependencies windows presentation di injection mvc controller model view framework</PackageTags>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net5.0-windows'">
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DefineConstants>DEBUG;TRACE</DefineConstants>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)'=='net46'">
+		<Reference Include="System" />
+		<Reference Include="System.Data" />
+		<Reference Include="System.Xml" />
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Data.DataSetExtensions" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Xaml" />
+		<Reference Include="WindowsBase" />
+		<Reference Include="PresentationCore" />
+		<Reference Include="PresentationFramework" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Debug'">
+	  <ProjectReference Include="..\Core\Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='NightlyBuild'">
+		<PackageReference Include="DI" Version="*-*" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='Release'">
+		<PackageReference Include="DI" Version="1.*" />
+	</ItemGroup>
+
+</Project>

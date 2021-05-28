@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+	xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+	xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+	xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+	IgnorableNamespaces="uap mp">
+
+	<Identity Name="e6809a73-58c5-47c9-bfa5-5c0eca7e310a"
+						Publisher="CN=mateuszokroj1"
+						Version="1.0.0.0" />
+
+	<mp:PhoneIdentity PhoneProductId="e6809a73-58c5-47c9-bfa5-5c0eca7e310a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+	<Properties>
+		<DisplayName>Uwp.Tests</DisplayName>
+		<PublisherDisplayName>mateu</PublisherDisplayName>
+		<Logo>Assets\StoreLogo.png</Logo>
+	</Properties>
+
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+	</Dependencies>
+
+	<Resources>
+		<Resource Language="x-generate" />
+	</Resources>
+	<Applications>
+		<Application Id="vstest.executionengine.universal.App"
+				Executable="$targetnametoken$.exe"
+				EntryPoint="Uwp.Tests.App">
+			<uap:VisualElements
+				DisplayName="DI Test"
+				Description="DI Test for UWP"
+				BackgroundColor="#000000"
+				Square150x150Logo="Blank.png"
+				Square44x44Logo="Blank.png"
+			/>
+		</Application>
+	</Applications>
+	<Capabilities>
+		<Capability Name="internetClientServer" />
+		<Capability Name="privateNetworkClientServer" />
+	</Capabilities>
+</Package>
