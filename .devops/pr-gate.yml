@@ -1,0 +1,67 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: DI - Pull Request check
+
+pr:
+  autoCancel: true
+  branches:
+   include:
+       - master
+       - releases/*
+
+trigger: none
+
+pool:
+  vmImage: windows-latest
+
+steps:
+
+- task: UseDotNet@2
+  displayName: Install .NET 5.0
+  timeoutInMinutes: 5
+  inputs:
+    packageType: 'sdk'
+    version: '5.0.x'
+
+- task: NuGetCommand@2
+  displayName: Restore source projects
+  timeoutInMinutes: 10
+  inputs:
+    command: 'restore'
+    restoreSolution: 'src/DI.sln'
+    feedsToUse: 'select'
+    configuration: Debug
+
+- task: VSBuild@1
+  displayName: Build source projects
+  timeoutInMinutes: 30
+  inputs:
+    solution: 'src/DI.sln'
+    platform: 'x64'
+    configuration: Debug
+    clean: true
+
+- task: VSTest@2
+  displayName: Test source projects
+  timeoutInMinutes: 15
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    runInParallel: true
+    codeCoverageEnabled: true
+    configuration: Debug
+    failOnMinTestsNotRun: true
+
+- task: PublishTestResults@2
+  displayName: Check is no failed tests
+  inputs:
+    testResultsFormat: 'XUnit'
+    testResultsFiles: '**/*.trx'
+    failTaskOnFailedTests: true

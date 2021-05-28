@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<IsPackable>false</IsPackable>
+		<Configurations>Debug;Release;NightlyBuild</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector" Version="3.*">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.*" />
+		<PackageReference Include="Moq" Version="4.*" />
+		<PackageReference Include="xunit" Version="2.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\DI.Wpf\DI.Wpf.csproj" />
+	</ItemGroup>
+
+</Project>
