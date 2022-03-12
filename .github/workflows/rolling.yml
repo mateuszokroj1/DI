@@ -1,0 +1,41 @@
+name: Rolling build
+
+on:
+  push:
+    branches: [ master, feature/*, fix/* ]
+  pull_request:
+    branches: none
+
+jobs:
+
+  linux:
+    
+    runs-on: ubuntu-latest
+  
+    name: Build on Linux
+    
+    steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+        
+      - name: Install .NET Core 3.1
+        uses: actions/setup-dotnet@v2.0.0
+        with:
+          dotnet-version: 3.1.x
+          
+      - name: Install .NET 5
+        uses: actions/setup-dotnet@v2.0.0
+        with:
+          dotnet-version: 5.0.x
+          
+      - name: Install .NET 6
+        uses: actions/setup-dotnet@v2.0.0
+        with:
+          dotnet-version: 6.0.x
+          
+      - name: Restore Core.csproj
+        run: dotnet restore src/Core/Core.csproj -c Debug
+      
+      - name: Build Core.csproj
+        run: dotnet build src/Core/Core.csproj -c Debug
