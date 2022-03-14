@@ -4,11 +4,11 @@ using System.Text;
 
 namespace DI
 {
-    public class Export
+    public struct ExportDefinition
     {
         #region Constructor
 
-        public Export(object instance, Type typeOfInstance)
+        public Export()
         {
             Instance = instance;
             Type = typeOfInstance;

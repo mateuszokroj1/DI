@@ -6,12 +6,13 @@ using DI.Extensibility;
 
 namespace DI.Builders
 {
-    public abstract class DefaultMainBuilder
+    public abstract class DefaultMainBuilder<TModuleBuilder> : IMainBuilder<TModuleBuilder>
+        where TModuleBuilder : DefaultBuilder
     {
         internal IList<Type> modules = new List<Type>();
 
-        public virtual DefaultMainBuilder Add<TModule>()
-            where TModule : IModule
+        public virtual DefaultMainBuilder<TModuleBuilder> Add<TModule>()
+            where TModule : IModule<TModuleBuilder>, new()
         {
             var type = typeof(TModule);
 

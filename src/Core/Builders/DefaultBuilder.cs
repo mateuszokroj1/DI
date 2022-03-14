@@ -4,7 +4,13 @@ using System.Text;
 
 namespace DI.Builders
 {
-    internal class DefaultBuilder
+    public abstract class DefaultBuilder
     {
+        protected virtual DefaultBuilder Export<TExport>()
+            where TExport : class
+        {
+
+            return this;
+        }
     }
 }

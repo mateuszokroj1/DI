@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DI.Builders;
 
 namespace DI.Extensibility
 {
-    public interface IModule
+    public interface IModule<TBuilder>
+        where TBuilder : DefaultBuilder
     {
-        void Configure();
+        void Configure(TBuilder options);
     }
 }

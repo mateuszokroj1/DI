@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net5.0-windows;net46</TargetFrameworks>
+		<TargetFrameworks>net5.0-windows;net6.0-windows;net47</TargetFrameworks>
 		<Version>0.9.0</Version>
 		<Authors>Mateusz Okrój</Authors>
 		<Product>DI WPF</Product>

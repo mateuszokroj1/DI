@@ -32,6 +32,8 @@ namespace DI
 
         public CompositionCollection Children { get; } = new CompositionCollection();
 
+        protected internal List<>
+
         #endregion
 
         #region Methods
@@ -39,18 +41,7 @@ namespace DI
         public bool TryImport<TImport>(out TImport destination)
             where TImport : class
         {
-            destination = null;
-
-            if(typeof(TImport).IsInterface)
-            {
-                if(this.exportGroups.)
-            }
-            else
-            {
-                if (this.exports.Where(export => export.Type == typeof(TImport)))
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
 
         #endregion
