@@ -1,25 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-
-using DI.Extensibility;
 
 namespace DI.Builders
 {
-    public abstract class DefaultMainBuilder<TModuleBuilder> : IMainBuilder<TModuleBuilder>
+    public abstract class DefaultMainBuilder<TModuleBuilder> : DefaultBuilder
         where TModuleBuilder : DefaultBuilder
     {
         internal IList<Type> modules = new List<Type>();
 
-        public virtual DefaultMainBuilder<TModuleBuilder> Add<TModule>()
-            where TModule : IModule<TModuleBuilder>, new()
+        protected virtual DefaultMainBuilder<TModuleBuilder> RegisterDependencies(Action<DependenciesRegister<TModuleBuilder>> register)
         {
-            var type = typeof(TModule);
-
-            if (modules.IndexOf(type) > -1)
-                throw new ArgumentException("Module is just registered.");
-
-            modules.Add(type);
+            var actionArgument = new DependenciesRegister<TModuleBuilder>(modules);
+            register(actionArgument);
 
             return this;
         }

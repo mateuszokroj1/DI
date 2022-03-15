@@ -7,6 +7,6 @@ namespace DI.Builders
     public abstract class DefaultSectionBuilder<TTaxonomy> : DefaultBuilder
         where TTaxonomy : ITaxonomy
     {
-        public virtual Type TaxonomyType => typeof(TTaxonomy);
+        public virtual TTaxonomy Taxonomy { get; }
     }
 }

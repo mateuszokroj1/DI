@@ -10,8 +10,8 @@ namespace DI
     {
         #region Fields
 
-        internal List<Export> exports = new List<Export>();
-        internal List<ExportGroup> exportGroups = new List<ExportGroup>();
+        //internal List<Export> exports = new List<Export>();
+        //internal List<ExportGroup> exportGroups = new List<ExportGroup>();
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace DI
 
         public CompositionCollection Children { get; } = new CompositionCollection();
 
-        protected internal List<>
+        
 
         #endregion
 

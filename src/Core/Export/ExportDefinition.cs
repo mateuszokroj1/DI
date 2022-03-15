@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DI
+namespace DI.Export
 {
-    public interface ITaxonomy
+    public struct ExportDefinition
     {
-        string Name { get; }
+
     }
 }
