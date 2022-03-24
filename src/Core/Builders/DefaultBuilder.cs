@@ -9,6 +9,17 @@ namespace DI.Builders
 {
     public abstract class DefaultBuilder
     {
+        protected void RegisterTaxonomy<TNewTaxonomy>()
+            where TNewTaxonomy : ITaxonomy
+        {
+
+        }
+
+        protected void RegisterTaxonomy<TNewTaxonomy, TParentTaxonomy>()
+        {
+
+        }
+
         protected virtual DefaultBuilder Export<TExport>(Action<ExportOptions<TExport>> options)
             where TExport : class
         {

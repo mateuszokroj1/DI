@@ -6,11 +6,11 @@ namespace DI.Builders
     public abstract class DefaultMainBuilder<TModuleBuilder> : DefaultBuilder
         where TModuleBuilder : DefaultBuilder
     {
-        internal IList<Type> modules = new List<Type>();
+        internal virtual IList<Type> Modules { get; } = new List<Type>();
 
         protected virtual DefaultMainBuilder<TModuleBuilder> RegisterDependencies(Action<DependenciesRegister<TModuleBuilder>> register)
         {
-            var actionArgument = new DependenciesRegister<TModuleBuilder>(modules);
+            var actionArgument = new DependenciesRegister<TModuleBuilder>(Modules);
             register(actionArgument);
 
             return this;

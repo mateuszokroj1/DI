@@ -34,10 +34,10 @@ namespace DI.Collections
         /// <exception cref="ArgumentNullException"/>
         internal void Add(Composition composition)
         {
-            Contracts.Contracts.NotNullArgument(composition);
+            /*Contracts.Contracts.NotNullArgument(composition);
 
             if (!this.list.Contains(composition))
-                this.list.Add(composition);
+                this.list.Add(composition);*/
         }
 
         internal void Remove(Composition composition)
