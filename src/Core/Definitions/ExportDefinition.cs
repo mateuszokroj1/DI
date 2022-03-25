@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DI.Export
+namespace DI.Definitions
 {
     public struct ExportDefinition
     {

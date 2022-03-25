@@ -26,4 +26,9 @@
 		<PackageReference Include="Contracts.Core" Version="*-*" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Collections\" />
+	  <Folder Include="Export\" />
+	</ItemGroup>
+
 </Project>

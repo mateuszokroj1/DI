@@ -2,7 +2,7 @@
 
 namespace DI
 {
-    /// <summary>
+    /*/// <summary>
     /// Is thrown when have some composition problems
     /// </summary>
     public class CompositionException : Exception
@@ -36,5 +36,5 @@ namespace DI
         public Composition Composition { get; }
 
         #endregion
-    }
+    }*/
 }
